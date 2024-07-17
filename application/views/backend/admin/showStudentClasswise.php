@@ -4,13 +4,17 @@
                 		<tr>
                     		<th><div>#</div></th>
                             <th><div><?php echo get_phrase('Image');?></div></th>
-                            <th><div><?php echo get_phrase('roll_number');?></div></th>
+                            <th><div><?php echo get_phrase('roll_no');?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
                     		<th><div><?php echo get_phrase('class');?></div></th>
-                    		<th><div><?php echo get_phrase('sex');?></div></th>
+                    		<th><div><?php echo get_phrase('section');?></div></th>
+                    		<th><div><?php echo get_phrase('gender');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
                             <th><div><?php echo get_phrase('phone');?></div></th>
                             <th><div><?php echo get_phrase('parent');?></div></th>
+                            <th><div><?php echo get_phrase('address');?></div></th>
+                            <th><div><?php echo get_phrase('actualFee');?></div></th>
+                            <th><div><?php echo get_phrase('remainingFee');?></div></th>
                     		<th><div><?php echo get_phrase('actions');?></div></th>
 						</tr>
 					</thead>
@@ -21,13 +25,17 @@
                         <tr>
                             <td><?php echo $counter++;?></td>
                             <td><img src="<?php echo $this->crud_model->get_image_url('student', $student['student_id']);?>" class="img-circle" width="30"></td>
-                            <td><?php echo $student['roll'];?></td>
+                            <td><?php echo $student['roll_no'];?></td>
                             <td><?php echo $student['name'];?></td>
                             <td><?php echo $this->crud_model->get_type_name_by_id('class', $student['class_id']);?></td>
+                            <td><?php echo $this->crud_model->get_type_name_by_id('section', $student['section_id']);?></td>
 							<td><?php echo $student['sex'];?></td>
                             <td><?php echo $student['email'];?></td>
                             <td><?php echo $student['phone'];?></td>
                             <td><?php echo $this->crud_model->get_type_name_by_id('parent', $student['parent_id']);?></td>
+                            <td><?php echo $student['address'];?></td>
+                            <td><?php echo $student['actualFee'];?></td>
+                            <td><?php echo $student['remainingFee'];?></td>
 							<td>
 							
 				     <a href="<?php echo base_url();?>admin/edit_student/<?php echo $student['student_id'];?>" ><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
