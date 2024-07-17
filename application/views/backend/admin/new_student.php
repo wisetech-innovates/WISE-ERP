@@ -32,17 +32,23 @@
                                         readonly="true">
                                 </div>
                             </div>
-
+							<div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('roll_no');?>*</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="roll_no" required autofocus>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-12"
-                                    for="example-text"><?php echo get_phrase('full_name');?></label>
+                                    for="example-text"><?php echo get_phrase('full_name');?>*</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" name="name" required autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12" for="example-text"><?php echo get_phrase('parent');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('parent');?>*</label>
                                 <div class="col-sm-12">
                                     <select name="parent_id" class="form-control select2" style="width:100%" required>
                                         <option value=""><?php echo get_phrase('select');?></option>
@@ -65,7 +71,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?>*</label>
                                 <div class="col-sm-12">
                                     <select name="class_id" class="form-control select2" style="width:100%"
                                         id="class_id" data-message-required="<?php echo get_phrase('value_required');?>"
@@ -91,7 +97,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('section');?>*</label>
                                 <div class="col-sm-12">
                                     <select name="section_id" class="form-control select2" style="width:100%"
                                         id="section_selector_holder">
@@ -111,7 +117,7 @@
 
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('birthday');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('birthday');?>*</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" name="birthday" required>
                                 </div>
@@ -169,9 +175,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('address');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('address');?>*</label>
                                 <div class="col-sm-12">
-                                    <textarea name="address" cols="" class="form-control" rows=""></textarea>
+                                    <textarea name="address" cols="" class="form-control" rows="" required></textarea>
                                 </div>
                             </div>
 
@@ -187,7 +193,7 @@
                                 <label class="col-md-12"
                                     for="example-text"><?php echo get_phrase('Student House');?></label>
                                 <div class="col-sm-12">
-                                    <select name="house_id" class="form-control select2" style="width:100%" required>
+                                    <select name="house_id" class="form-control select2" style="width:100%">
                                         <option value=""><?php echo get_phrase('select');?></option>
                                         <?php 
 								$house = $this->db->get('house')->result_array();
@@ -211,7 +217,7 @@
                                 <label class="col-md-12"
                                     for="example-text"><?php echo get_phrase('Student Club');?></label>
                                 <div class="col-sm-12">
-                                    <select name="club_id" class="form-control select2" style="width:100%" required>
+                                    <select name="club_id" class="form-control select2" style="width:100%">
                                         <option value=""><?php echo get_phrase('select');?></option>
                                         <?php 
 								$club = $this->db->get('club')->result_array();
@@ -231,7 +237,24 @@
                                 </div>
                             </div>
 
-
+							<div class="form-group">
+								<label class="col-md-9" for="actualFee"><?php echo get_phrase('actualFee'); ?>*</label>
+								<div class="col-sm-12">
+									<input type="number" id="actualFee" placeholder="Enter actual fee" class="form-control" name="actualFee" oninput="updateRemainingFee()" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-9" for="annualCharges"><?php echo get_phrase('annualCharges'); ?></label>
+								<div class="col-sm-12">
+									<input type="number" id="annualCharges" placeholder="Enter annual charges" class="form-control" name="annualCharges" oninput="updateRemainingFee()">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-9" for="remainingFee"><?php echo get_phrase('remainingFee'); ?></label>
+								<div class="col-sm-12">
+									<input type="number" id="remainingFee" class="form-control" name="remainingFee" readonly required>
+								</div>
+							</div>
                         </div>
 
 
@@ -256,21 +279,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('phone');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('phone');?>*</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="phone" value="">
+                                    <input type="text" class="form-control" name="phone" value="" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('email');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('email');?>*</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" name="email" value="" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-9" for="example-text"><?php echo get_phrase('password');?></label>
+                                <label class="col-md-9" for="example-text"><?php echo get_phrase('password');?>*</label>
                                 <div class="col-sm-12">
                                     <input type="password" class="form-control" name="password" value=""
                                         onkeyup="CheckPasswordStrength(this.value)" required>
@@ -282,7 +305,7 @@
                                 <label class="col-md-9"
                                     for="example-text"><?php echo get_phrase('previous_school_name');?></label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="ps_attended" data-validate="required"
+                                    <input type="text" class="form-control" name="ps_attended" data-validate=""
                                         value="" autofocus>
                                 </div>
                             </div>
@@ -299,7 +322,7 @@
                                 <label class="col-md-9"
                                     for="example-text"><?php echo get_phrase('purpose_of_leaving');?></label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="ps_purpose" data-validate="required"
+                                    <input type="text" class="form-control" name="ps_purpose" data-validate=""
                                         value="" autofocus>
                                 </div>
                             </div>
@@ -308,7 +331,7 @@
                                 <label class="col-md-9"
                                     for="example-text"><?php echo get_phrase('class_in_which_was_studying');?></label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="class_study" data-validate="required"
+                                    <input type="text" class="form-control" name="class_study" data-validate=""
                                         value="" autofocus>
                                 </div>
                             </div>
@@ -433,7 +456,7 @@
                                     for="example-text"><?php echo get_phrase('Student Category');?></label>
                                 <div class="col-sm-12">
                                     <select name="student_category_id" class="form-control select2" style="width:100%"
-                                        required>
+                                        >
                                         <option value=""><?php echo get_phrase('select');?></option>
                                         <?php 
 								$student_category = $this->db->get('student_category')->result_array();
@@ -575,4 +598,10 @@ $(function() {
             $("#age").val(years);
         });
 });
+function updateRemainingFee() {
+            var actualFee = parseFloat(document.getElementById('actualFee').value) || 0;
+            var annualCharges = parseFloat(document.getElementById('annualCharges').value) || 0;
+            var remainingFee = actualFee + annualCharges;
+            document.getElementById('remainingFee').value = remainingFee;
+        }
 </script>

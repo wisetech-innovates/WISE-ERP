@@ -74,6 +74,7 @@ class Student_model extends CI_Model {
     function createNewStudent(){
 
         $page_data = array(
+            'roll_no'          => html_escape($this->input->post('roll_no')),
             'name'          => html_escape($this->input->post('name')),
             'birthday'      => html_escape($this->input->post('birthday')),
             'age'           => html_escape($this->input->post('age')),
@@ -108,7 +109,10 @@ class Student_model extends CI_Model {
             'house_id'        => html_escape($this->input->post('house_id')),
             'student_category_id' => html_escape($this->input->post('student_category_id')),
             'club_id'             => html_escape($this->input->post('club_id')),
-            'session'             => html_escape($this->input->post('session'))
+            'session'             => html_escape($this->input->post('session')),
+            'actualFee'             => html_escape($this->input->post('actualFee')),
+            'annualCharges'             => html_escape($this->input->post('annualCharges')),
+            'remainingFee'             => html_escape($this->input->post('remainingFee')),
         );
         
   
