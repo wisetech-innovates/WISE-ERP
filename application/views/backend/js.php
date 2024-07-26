@@ -290,6 +290,27 @@
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
+    $('#customDatatable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 
+            {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        customize: function (doc) {
+                            // Define a custom header
+                            doc.content.splice(0, 0, {
+                                text: 'This is pdf data',
+                                fontSize: 16,
+                                alignment: 'center',
+                                margin: [0, 0, 0, 12]
+                            });
+                        }
+                    }
+                    , 'print'
+        ]
+    });
+  
     </script>
 	
 	

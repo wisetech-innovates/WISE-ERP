@@ -4,15 +4,11 @@
 
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body table-responsive">
-
-
                     <div class="row panel-body">
                         <div class="col-sm-6">
 
                             <div class="alert alert-success">
                                 <?php echo get_phrase('admission_form'); ?>&nbsp;-&nbsp;PART A</div>
-
-
                             <?php echo form_open(base_url() . 'admin/new_student/create/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
                             <div class="form-group">
                                 <div class="col-sm-12">
@@ -67,6 +63,27 @@
                                             class="btn btn-info btn-circle btn-xs"><i
                                                 class="fa fa-plus"></i></button></a>
 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('father_name');?>*</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="father_name" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('father_cnic');?>*</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="father_cnic" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('mother_name');?></label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="mother_name" autofocus>
                                 </div>
                             </div>
 
@@ -189,54 +206,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-12"
-                                    for="example-text"><?php echo get_phrase('Student House');?></label>
-                                <div class="col-sm-12">
-                                    <select name="house_id" class="form-control select2" style="width:100%">
-                                        <option value=""><?php echo get_phrase('select');?></option>
-                                        <?php 
-								$house = $this->db->get('house')->result_array();
-								foreach($house as $row):
-									?>
-                                        <option value="<?php echo $row['house_id'];?>">
-                                            <?php echo $row['name'];?>
-                                        </option>
-                                        <?php
-								endforeach;
-							  ?>
-                                    </select>
-                                    <a href="<?php echo base_url();?>studenthouse/studentHouse/"><button type="button"
-                                            class="btn btn-info btn-circle btn-xs"><i
-                                                class="fa fa-plus"></i></button></a>
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12"
-                                    for="example-text"><?php echo get_phrase('Student Club');?></label>
-                                <div class="col-sm-12">
-                                    <select name="club_id" class="form-control select2" style="width:100%">
-                                        <option value=""><?php echo get_phrase('select');?></option>
-                                        <?php 
-								$club = $this->db->get('club')->result_array();
-								foreach($club as $row):
-									?>
-                                        <option value="<?php echo $row['club_id'];?>">
-                                            <?php echo $row['club_name'];?>
-                                        </option>
-                                        <?php
-								endforeach;
-							  ?>
-                                    </select>
-                                    <a href="<?php echo base_url();?>admin/club/"><button type="button"
-                                            class="btn btn-info btn-circle btn-xs"><i
-                                                class="fa fa-plus"></i></button></a>
-
-                                </div>
-                            </div>
-
 							<div class="form-group">
 								<label class="col-md-9" for="actualFee"><?php echo get_phrase('actualFee'); ?>*</label>
 								<div class="col-sm-12">
@@ -247,6 +216,12 @@
 								<label class="col-md-9" for="annualCharges"><?php echo get_phrase('annualCharges'); ?></label>
 								<div class="col-sm-12">
 									<input type="number" id="annualCharges" placeholder="Enter annual charges" class="form-control" name="annualCharges" oninput="updateRemainingFee()">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-9" for="previousPendingCharges"><?php echo get_phrase('previousPendingCharges'); ?></label>
+								<div class="col-sm-12">
+									<input type="number" id="previousPendingCharges" placeholder="Enter Previous Pending Charges" class="form-control" name="previousPendingCharges" oninput="updateRemainingFee()">
 								</div>
 							</div>
 							<div class="form-group">
@@ -355,7 +330,53 @@
 
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('Student House');?></label>
+                                <div class="col-sm-12">
+                                    <select name="house_id" class="form-control select2" style="width:100%">
+                                        <option value=""><?php echo get_phrase('select');?></option>
+                                        <?php 
+								$house = $this->db->get('house')->result_array();
+								foreach($house as $row):
+									?>
+                                        <option value="<?php echo $row['house_id'];?>">
+                                            <?php echo $row['name'];?>
+                                        </option>
+                                        <?php
+								endforeach;
+							  ?>
+                                    </select>
+                                    <a href="<?php echo base_url();?>studenthouse/studentHouse/"><button type="button"
+                                            class="btn btn-info btn-circle btn-xs"><i
+                                                class="fa fa-plus"></i></button></a>
 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('Student Club');?></label>
+                                <div class="col-sm-12">
+                                    <select name="club_id" class="form-control select2" style="width:100%">
+                                        <option value=""><?php echo get_phrase('select');?></option>
+                                        <?php 
+								$club = $this->db->get('club')->result_array();
+								foreach($club as $row):
+									?>
+                                        <option value="<?php echo $row['club_id'];?>">
+                                            <?php echo $row['club_name'];?>
+                                        </option>
+                                        <?php
+								endforeach;
+							  ?>
+                                    </select>
+                                    <a href="<?php echo base_url();?>admin/club/"><button type="button"
+                                            class="btn btn-info btn-circle btn-xs"><i
+                                                class="fa fa-plus"></i></button></a>
+
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-9"
                                     for="example-text"><?php echo get_phrase('transfer_certificate');?></label>
@@ -601,7 +622,8 @@ $(function() {
 function updateRemainingFee() {
             var actualFee = parseFloat(document.getElementById('actualFee').value) || 0;
             var annualCharges = parseFloat(document.getElementById('annualCharges').value) || 0;
-            var remainingFee = actualFee + annualCharges;
+            var previousPendingCharges = parseFloat(document.getElementById('previousPendingCharges').value) || 0;
+            var remainingFee = actualFee + annualCharges + previousPendingCharges;
             document.getElementById('remainingFee').value = remainingFee;
         }
 </script>

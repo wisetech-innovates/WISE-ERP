@@ -58,6 +58,7 @@ $(document).ready(function() {
             url: '<?php echo site_url('admin/getStudentClasswise/');?>' + class_id
         }).done(function(response) {
             $('#data').html(response);
+           
         });
     });
 

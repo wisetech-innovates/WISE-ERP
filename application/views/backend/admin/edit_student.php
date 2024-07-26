@@ -69,6 +69,33 @@
 
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('father_name');?>*</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="father_name" 
+                                    value="<?php echo $student['father_name'];?>"
+                                    required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('father_cnic');?>*</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="father_cnic" 
+                                    value="<?php echo $student['father_cnic'];?>"
+                                    required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('mother_name');?></label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="mother_name" 
+                                    value="<?php echo $student['mother_name'];?>"
+                                    autofocus>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?>*</label>
@@ -195,54 +222,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-12"
-                                    for="example-text"><?php echo get_phrase('Student House');?></label>
-                                <div class="col-sm-12">
-                                    <select name="house_id" class="form-control select2" style="width:100%">
-                                        <option value=""><?php echo get_phrase('select');?></option>
-                                        <?php 
-								$house = $this->db->get('house')->result_array();
-								foreach($house as $house):
-									?>
-                                        <option value="<?php echo $house['house_id'];?>"
-                                            <?php if($student['house_id']== $house['house_id']) echo 'selected';?>>
-                                            <?php echo $house['name'];?>
-                                        </option>
-                                        <?php
-								endforeach;
-							  ?>
-                                    </select>
-                                    <a href="<?php echo base_url();?>studenthouse/studentHouse/"><button type="button"
-                                            class="btn btn-info btn-circle btn-xs"><i
-                                                class="fa fa-plus"></i></button></a>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-12"
-                                    for="example-text"><?php echo get_phrase('Student Club');?></label>
-                                <div class="col-sm-12">
-                                    <select name="club_id" class="form-control select2" style="width:100%">
-                                        <option value=""><?php echo get_phrase('select');?></option>
-                                        <?php 
-								$club = $this->db->get('club')->result_array();
-								foreach($club as $club):
-									?>
-                                        <option value="<?php echo $club['club_id'];?>"
-                                            <?php if($student['club_id']== $club['club_id']) echo 'selected';?>>
-                                            <?php echo $club['club_name'];?>
-                                        </option>
-                                        <?php
-								endforeach;
-							  ?>
-                                    </select>
-                                    <a href="<?php echo base_url();?>admin/club/"><button type="button"
-                                            class="btn btn-info btn-circle btn-xs"><i
-                                                class="fa fa-plus"></i></button></a>
-
-                                </div>
-                            </div>
 							<div class="form-group">
 								<label class="col-md-9" for="actualFee"><?php echo get_phrase('actualFee'); ?>*</label>
 								<div class="col-sm-12">
@@ -366,7 +345,54 @@
 
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('Student House');?></label>
+                                <div class="col-sm-12">
+                                    <select name="house_id" class="form-control select2" style="width:100%">
+                                        <option value=""><?php echo get_phrase('select');?></option>
+                                        <?php 
+								$house = $this->db->get('house')->result_array();
+								foreach($house as $house):
+									?>
+                                        <option value="<?php echo $house['house_id'];?>"
+                                            <?php if($student['house_id']== $house['house_id']) echo 'selected';?>>
+                                            <?php echo $house['name'];?>
+                                        </option>
+                                        <?php
+								endforeach;
+							  ?>
+                                    </select>
+                                    <a href="<?php echo base_url();?>studenthouse/studentHouse/"><button type="button"
+                                            class="btn btn-info btn-circle btn-xs"><i
+                                                class="fa fa-plus"></i></button></a>
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label class="col-md-12"
+                                    for="example-text"><?php echo get_phrase('Student Club');?></label>
+                                <div class="col-sm-12">
+                                    <select name="club_id" class="form-control select2" style="width:100%">
+                                        <option value=""><?php echo get_phrase('select');?></option>
+                                        <?php 
+								$club = $this->db->get('club')->result_array();
+								foreach($club as $club):
+									?>
+                                        <option value="<?php echo $club['club_id'];?>"
+                                            <?php if($student['club_id']== $club['club_id']) echo 'selected';?>>
+                                            <?php echo $club['club_name'];?>
+                                        </option>
+                                        <?php
+								endforeach;
+							  ?>
+                                    </select>
+                                    <a href="<?php echo base_url();?>admin/club/"><button type="button"
+                                            class="btn btn-info btn-circle btn-xs"><i
+                                                class="fa fa-plus"></i></button></a>
+
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-9"
                                     for="example-text"><?php echo get_phrase('transfer_certificate');?></label>
