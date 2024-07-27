@@ -1,57 +1,19 @@
 <table id="customDatatable" class="table display">
     <thead>
         <tr>
-            <th>
-                <div>#</div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('Image');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('roll_no');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('name');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('father_name');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('father_cnic');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('parent');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('class');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('section');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('gender');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('email');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('phone');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('address');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('actualFee');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('remainingFee');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('previousPendingCharges');?></div>
-            </th>
-            <th>
-                <div><?php echo get_phrase('actions');?></div>
-            </th>
+            <th><div>#</div></th>
+            <th><div><?php echo get_phrase('Image');?></div></th>
+            <th><div><?php echo get_phrase('roll_no');?></div></th>
+            <th><div><?php echo get_phrase('name');?></div></th>
+            <th><div><?php echo get_phrase('father_name');?></div></th>
+            <th><div><?php echo get_phrase('class');?></div></th>
+            <th><div><?php echo get_phrase('section');?></div></th>
+            <th><div><?php echo get_phrase('gender');?></div></th>
+            <th><div><?php echo get_phrase('phone');?></div></th>
+            <th><div><?php echo get_phrase('actualFee');?></div></th>
+            <th><div>Remaining Fee</div></th>
+            <th><div>Pending Dues</div></th>
+            <th><div><?php echo get_phrase('actions');?></div></th>
         </tr>
     </thead>
     <tbody>
@@ -65,14 +27,10 @@
             <td><?php echo $student['roll_no'];?></td>
             <td><?php echo $student['name'];?></td>
             <td><?php echo $student['father_name'];?></td>
-            <td><?php echo $student['father_cnic'];?></td>
-            <td><?php echo $this->crud_model->get_type_name_by_id('parent', $student['parent_id']);?></td>
             <td><?php echo $this->crud_model->get_type_name_by_id('class', $student['class_id']);?></td>
             <td><?php echo $this->crud_model->get_type_name_by_id('section', $student['section_id']);?></td>
             <td><?php echo $student['sex'];?></td>
-            <td><?php echo $student['email'];?></td>
             <td><?php echo $student['phone'];?></td>
-            <td><?php echo $student['address'];?></td>
             <td><?php echo $student['actualFee'];?></td>
             <td><?php echo $student['remainingFee'];?></td>
             <td><?php echo $student['previousPendingCharges'];?></td>
@@ -110,14 +68,18 @@ $('#customDatatable').DataTable({
                         customize: function (doc) {
                             // Define a custom header
                             doc.content.splice(0, 0, {
-                                text: 'This is pdf data',
+                                text: 'THE EDUCATORS SCHOOL',
                                 fontSize: 16,
                                 alignment: 'center',
                                 margin: [0, 0, 0, 12]
                             });
+                        },
+                        exportOptions: {
+                            columns: [2,3] 
                         }
                     }
                     , 'print'
         ]
     });
+    
 </script>
